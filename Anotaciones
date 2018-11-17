@@ -1,0 +1,88 @@
+PENDIENTES:
+
+-> MANEJO DE IMAGENES 
+    -> https://www.npmjs.com/package/angular-material-fileupload
+    -> SE PUEDE APLICAR COMO AVATAR.
+
+    -> VER ALTA DE PARA APLICAR
+
+-> SERVICIO MAP
+    -> location_on ICON
+-> CAPTCHA PROPIO
+-> DIRECTIVAS
+-> PIPES
+    -> https://blog.ng-classroom.com/blog/angular/trabajando-con-pipes/
+-> ALTA DE USUARIO
+-> ALTA DE EMPLEADO 
+    -> group_add
+-> ALTA DE PLATO
+    -> local_dining ICON
+    -> restaurant
+
+-> LISTA
+-> AGREGAR IMAGEN A ADMIN
+    -> insert_photo
+
+
+-> LOGOUT
+    -> exit_to_app ICON
+
+-> JWT
+
+-> SPINNER
+
+-> EDITAR CSS DESDE INET
+
+COSAS PARA HACER:
+    -PERFILES
+        -ADMIN
+        -MOZO
+        -BARMAN
+        -CHEF
+        -CLIENTE
+    
+    -REGISTRO
+        -CAPTCHA
+    
+
+MOZO DA DE ALTA EL PEDIDO
+    -PLATO 
+    -BEBIDA
+
+    LOS PLATOS DEBEN ASIGNARSE AUTOMATICAMENTE A LOS RESPONSABLES
+
+25/10: 
+    -LOGIN   
+    -PERFILES
+        -FILTRAR PEDIDOS DESDE EL SERVICIO (FILTER)
+    -PANTALLAS
+
+
+01/11:
+    -SUBIDO A LA WEB
+    -REGISTRO
+    
+8/11:
+    -GENERAR EXCEL Y PDF
+
+15/11:
+    -MANEJO DE IMAGENES
+    -CAPTCHA GOOGLE Y PROPIO
+    -CHART.JS
+
+22/11:
+    -3 PIPES
+    -3 DIRECTIVAS
+
+29/11:
+    -CORRECCION FINAL
+
+
+ANOTACIONES:
+    -1 SERVICIO POR IDENTIDAD
+    -GENERICO
+    -ESTILOS Y EXPERIENCIA DE USUARIO
+    -SISTEMA FUNCIONAL
+    -CAPTCHA PROPIO / SPINNER / FAVICON
+
+

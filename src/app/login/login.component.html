@@ -1,0 +1,116 @@
+<form novalidate [formGroup]="loginForm" (ngSubmit)="Entrar()">
+
+    <mat-toolbar mat-dialog-title color="gray">
+        <h2 class="display-3">Ingresar <button mat-button mat-dialog-close id="closebtn">&times;</button></h2>
+       
+    </mat-toolbar>
+
+      
+    <!-- <div class="container"> -->
+<!-- 
+      <div class="example-container">
+          <h2 class="display-3">Ingresar al Sistema</h2>
+          <br> -->
+      <div class="centro">    
+      <img class="img-thumbnail"   src="../../assets/images/login.png" alt="Avatar" >
+      </div>
+    <br><br>
+
+    <div class="form-group"> 
+            <mat-form-field>
+                <input #usuarioInput matInput placeholder="Ingrese Usuario" value="{{usuario.usuario}}" formControlName="usuario"   type="usuario" name="usuarioInput"  required>
+                <!-- <mat-error *ngIf="usuario.invalid">{{getErrorMessageUser()}}</mat-error> -->
+              </mat-form-field>
+
+            </div>
+<br>
+<div class="form-group"> 
+  <mat-form-field>
+      <input matInput placeholder="Ingrese Email" value="{{usuario.email}}"   formControlName="email"   type="email" name="email" required>
+      <!-- <mat-error *ngIf="usuario.invalid">{{getErrorMessageUser()}}</mat-error> -->
+    </mat-form-field>
+
+  </div>
+<br>
+<div class="form-group"> 
+  <mat-form-field>
+      <input matInput placeholder="Ingrese Perfil" value="{{usuario.perfil}}"   formControlName="perfil"   type="perfil" name="perfil" required>
+      <!-- <mat-error *ngIf="usuario.invalid">{{getErrorMessageUser()}}</mat-error> -->
+    </mat-form-field>
+
+  </div>
+<br>
+<div class="form-group">
+          <mat-form-field>
+            <input matInput placeholder="Ingrese Clave" value="{{usuario.clave}}"   formControlName="clave"  name="clave" [type]="hide ? 'clave' : 'text'">
+            <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <!-- <mat-error *ngIf="password.invalid">{{getErrorMessagePsw()}}</mat-error> -->
+          </mat-form-field>  
+
+</div>
+
+          <br>
+            <mat-checkbox >Recordar mis Datos</mat-checkbox>
+            <br>
+            <!-- <button *ngIf="logeando"  (click)="MoverBarraDeProgreso()" >Ingresar</button> -->
+           
+       
+          <!-- </div> -->
+
+        <!-- </div> -->
+        <span class="flex-spacer"></span>
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button type="button" mat-button class="background-primary text-floral-white" >Ingresar</button>
+      <!-- </div> -->
+      
+
+        
+          <!-- <button [disabled]="loading" (click)="LoginNor()" class="btn btn-primary">Normal</button>
+          <button [disabled]="loading" (click)="LoginFree()" class="btn btn-primary">Free</button> -->
+  
+</form>
+
+<button  (click)="LoginProf()" class="btn btn-primary">Profesional</button>
+
+<!-- 
+<form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
+
+<mat-toolbar mat-dialog-title color="gray">
+  Formulario de Login 
+  <span class="flex-spacer"></span>
+  <button mat-button mat-dialog-close id="closebtn">&times;</button>
+</mat-toolbar>
+
+    <mat-dialog-content>
+
+
+        <div class="form-group">
+      <mat-form-field class="full-width-input"  >
+        <input matInput placeholder="Usuario" formControlName="username" type="text"  name="username"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required>
+        <mat-hint>
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Nombre es requerido</div>
+            </div>      
+        </mat-hint>
+      </mat-form-field>
+    </div>
+
+      <div class="form-group">
+      <mat-form-field class="full-width-input" >
+        <input matInput placeholder="Contraseña"  formControlName="password" type="password"  name="password"  class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" required>
+        <mat-hint>
+            <span *ngIf="!password.errors?.required">Clave es requerida</span>        
+        </mat-hint>
+      </mat-form-field>
+    </div>
+      <mat-checkbox [(ngModel)]="user.remember" name="remember">Remember Me</mat-checkbox>
+  
+
+    </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="loginForm.form.invalid">Login</button>
+  </mat-dialog-actions>
+</form> -->
