@@ -2,7 +2,7 @@
 .jumbotron {
     margin: 0px auto;
     padding: 20px 20px;
-    background: lightsalmon;
+    background: grey;
     color: floralwhite;
     min-height: 100px;
     
@@ -10,7 +10,7 @@
 
   .header 
   {
-    background-color: red;
+    background-color: black;
     
   }
 
@@ -27,7 +27,7 @@
   }
 
 .active {
-  background-color:crimson;
+  background-color:lightgray;
   color: black;
   transition-duration: 1.8s;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);

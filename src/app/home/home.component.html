@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container"
      fxLayout="row"
      fxLayout.sm="column"
@@ -9,12 +10,12 @@
   <mat-card-header>
     <div mat-card-avatar></div>
     <mat-card-title>
-      <h3>{{dish.name | uppercase}}</h3>
+      <h3>Servidores</h3>
     </mat-card-title>
   </mat-card-header>
-  <img mat-card-image src={{dish.image}} alt={{dish.name}}>
+  <img mat-card-image src="../../assets/imagenes/server.png" alt="Servidores">
   <mat-card-content>
-    <p>{{dish.description}}
+    <p>Servidores WEB
     </p>
   </mat-card-content>
 </mat-card>
@@ -26,12 +27,12 @@
   <mat-card-header>
     <div mat-card-avatar></div>
     <mat-card-title>
-      <h3>{{promotion.name | uppercase}}</h3>
+      <h3>Base de Datos</h3>
     </mat-card-title>
   </mat-card-header>
-  <img mat-card-image src={{promotion.image}} alt={{promotion.name}}>
+  <img mat-card-image src="../../assets/imagenes/bases.png" alt="Base de Datos">
   <mat-card-content>
-    <p>{{promotion.description}}
+    <p>Alojamiento de bases de datos
     </p>
   </mat-card-content>
 </mat-card>
@@ -43,12 +44,12 @@
     <mat-card-header>
       <div mat-card-avatar></div>
       <mat-card-title>
-        <h3>{{leader.name | uppercase}}</h3>
+        <h3>Almacenamiento de archivos</h3>
       </mat-card-title>
     </mat-card-header>
-    <img mat-card-image src={{leader.image}} alt={{leader.name}}>
+    <img mat-card-image src="../../assets/imagenes/archivos.png" alt="archivos">
     <mat-card-content>
-      <p>{{leader.description}}
+      <p>Hosting de archivos
       </p>
     </mat-card-content>
   </mat-card>

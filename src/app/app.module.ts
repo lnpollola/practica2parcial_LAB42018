@@ -58,6 +58,10 @@ import {
   MatToolbarModule,
   MatTooltipModule
 } from '@angular/material';
+import { ServidoresComponent } from './servidores/servidores.component';
+import { BasesComponent } from './bases/bases.component';
+import { AlmacarchivosComponent } from './almacarchivos/almacarchivos.component';
+import { UserFreeComponent } from './user-free/user-free.component';
 
 
 
@@ -72,7 +76,11 @@ import {
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    ServidoresComponent,
+    BasesComponent,
+    AlmacarchivosComponent,
+    UserFreeComponent
   ],
   imports: [
     BrowserModule,
