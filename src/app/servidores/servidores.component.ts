@@ -4,7 +4,7 @@ import { AltaWebService } from "../services/alta-web.service";
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 // import { MessageService } from 'primeng/api';
 // import {Message} from 'primeng/components/common/api';
-
+import { first } from 'rxjs/operators';
 
 export interface DetalleUsuarios {
   NombServ: any;
@@ -20,9 +20,12 @@ export class ServidoresComponent implements OnInit {
 
 
   @Input() dataSource;
-captcha=false;
+  captcha=false;
   listaUsuarios:Array<any>;
-  // msgs: Message[] = [];
+  loading = false;
+  submitted = false;
+  returnUrl: string;
+  datacallback: string;
 
 
   displayedColumns: string[] = ['NombServ','Contratado'];
@@ -34,7 +37,7 @@ captcha=false;
         ) 
         
         {
-    this.TraerTodosLosServicios();
+    // this.TraerTodosLosServicios();
    }
 
    NombServ = new FormControl('', [
@@ -52,25 +55,25 @@ captcha=false;
    
   });
 
+  get f() { return this.registroForm.controls; }
 
-  TraerTodosLosServicios()
-   {
-
-   this.httpUsuarios.TraerServicios().subscribe(data=>{
-    this.listaUsuarios= JSON.parse(data._body);
-    console.log(this.listaUsuarios);
-    
- });
-   }
-
-
-   IngresarUsuario()
+   IngresarServicio()
    {
  
-        let usuario= this.registroForm.get('email').value;
-        let clave= this.registroForm.get('clave').value;
-        let perfil= this.registroForm.get('perfil').value;
-        let sexo= this.registroForm.get('sexo').value;
+    let idusuario: any = JSON.parse(localStorage.getItem('usuario'));
+
+    console.log(idusuario);
+
+    idusuario = idusuario.usuario;
+    
+     //console.log(idusuario);
+     let datosLogin = new Servicio(idusuario,this.f.NombServ.value, this.f.Contratado.value);
+
+    console.log(datosLogin);
+
+    this.httpUsuarios.ServiceAltaWeb(datosLogin).subscribe( data =>{
+        console.log(data._body);        
+    });
   
    }
 
@@ -81,8 +84,15 @@ captcha=false;
    }
 
   ngOnInit() {
-    this.TraerTodosLosServicios();
+   
   }
 
 
 }
+
+
+
+
+
+
+
