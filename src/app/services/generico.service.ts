@@ -16,13 +16,13 @@ import { catchError, map, tap } from 'rxjs/operators';
 export class GenericoService {
 
 
-  api="http://localhost/backEndComandaV2/";
+  api="http://localhost/backendComandaV2/";
   //api="https://dvlacomanda.000webhostapp.com/backEndComanda/"
   
   constructor(public http:Http) { }
   
 
-  public httpGet(metodo:string, objeto:any):Observable<any>{
+  public httpGet(metodo:string):Observable<any>{
 
     return this.http
     .get(this.api + metodo)
