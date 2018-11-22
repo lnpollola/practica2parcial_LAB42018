@@ -4,6 +4,7 @@
     public $idusuario;
     public $nombre;
     public $megas;
+    
      
     public function GuardarWeb(){
     
@@ -15,6 +16,15 @@
         $consulta->execute();
         
         return $objetoAccesoDato->RetornarUltimoIdInsertado();
+    }
+
+    public static function TraerTodosLasWebs() {
+        $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
+        $consulta =$objetoAccesoDato->RetornarConsulta("SELECT * from servicios");  
+        $consulta->execute();
+        $webs= $consulta->fetchAll(PDO::FETCH_CLASS, "Web");
+                
+        return $webs;									
     }
  // public static function TraerTodosLosProductos() 
 // {

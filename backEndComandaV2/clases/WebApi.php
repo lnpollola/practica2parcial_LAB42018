@@ -3,7 +3,7 @@ include_once "Web.php";
  include_once "AutentificadorJWT.php";
 
  class WebApi {
-     
+
  public static function AltaWebSegundoParcial($request, $response, $args) 
 {
              
@@ -94,6 +94,17 @@ include_once "Web.php";
         return $response->withJson($objDelaRespuesta, 200);
         
 }
+
+
+public static function ListadoServicios($request, $response, $args)
+{
+    $objDelaRespuesta=new stdclass();
+       
+    $objDelaRespuesta=Web::TraerTodosLasWebs();
+    return $response->withJson($objDelaRespuesta, 200);
+}
+
+
  public static function TraerPendientesEmpleado($request, $response, $args)
 {
     $objDelaRespuesta=new stdclass();

@@ -7,8 +7,9 @@ import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms'
 import { first } from 'rxjs/operators';
 
 export interface DetalleUsuarios {
-  NombServ: any;
-  Contratado: any
+  idUsuario: any;
+  nombre_servicio: any;
+  contratado: any;
 }
 
 @Component({
@@ -26,9 +27,10 @@ export class ServidoresComponent implements OnInit {
   submitted = false;
   returnUrl: string;
   datacallback: string;
+  listado: any;
 
 
-  displayedColumns: string[] = ['NombServ','Contratado'];
+  displayedColumns: string[] = ['idUsuario','nombre_servicio','contratado'];
 
   constructor(
           private builder: FormBuilder,
@@ -37,7 +39,10 @@ export class ServidoresComponent implements OnInit {
         ) 
         
         {
-    // this.TraerTodosLosServicios();
+  
+          this.httpUsuarios.ServiceTraerWeb().subscribe( data =>{
+            this.listado = JSON.parse(data._body);
+          })
    }
 
    NombServ = new FormControl('', [

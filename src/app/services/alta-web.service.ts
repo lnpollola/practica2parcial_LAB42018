@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 })
 export class AltaWebService {
    constructor(public _generico: GenericoService) { }
+
+
    public ServiceAltaWeb(datosLogin):Observable<any> {
     
     console.log("Altaweb" + datosLogin);
@@ -13,4 +15,13 @@ export class AltaWebService {
     return this._generico.httpPost("Servicios/AltaWeb",datosLogin)
         .pipe(data =>{return data;}); 
    }
+
+   
+  public ServiceTraerWeb():Observable<any>{
+
+    return this._generico.httpGet("Servicios/TodasWebs")
+    .pipe(data =>{return data;}); 
+
+  }
+
  }

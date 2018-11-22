@@ -42,6 +42,7 @@ $app->add(function ($req, $res, $next) {
 $app->group('/Servicios', function () { 
 
   $this->post('/AltaWeb',\WebApi::class . ':AltaWebSegundoParcial');
+  $this->get('/TodasWebs',\WebApi::class . ':ListadoServicios');
 
   $this->post('/Carga', \WebApi::class . ':CargarUno');
   $this->post('/Borrar', \WebApi::class . ':BorrarUno');
