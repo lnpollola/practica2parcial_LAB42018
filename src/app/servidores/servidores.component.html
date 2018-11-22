@@ -8,11 +8,21 @@
         <div class="form-group">
         
     
-          <input class="form-control input-ingreso" placeholder="Nombre del Servicio" type="url"  name="NombServ"  [formControl]="NombServ" required><br>
-    
-          <input type="number" class="form-control input-ingreso" placeholder="Cantidad Contratada"  name="Contratado"  [formControl]="Contratado" required><br>
-               
-            <button (click)="IngresarServicio()" class="btn btn-success col-sm-12" [disabled]="!registroForm.valid">Ingresar</button>
+          <input class="form-control input-ingreso" placeholder="Codigo del modelo" type="number"  name="codigoZapato"  [formControl]="codigoZapato" required><br>
+          <input type="text" class="form-control input-ingreso" placeholder="Nombre del calzado"  name="nombre"  [formControl]="nombre" required><br>
+            
+          
+          <input class="form-control input-ingreso" placeholder="Fecha de Ingreso" type="text"  name="fIngreso"  [formControl]="fIngreso" required><br>
+
+          <input type="text" class="form-control input-ingreso" placeholder="Local de Venta"  name="localVenta"  [formControl]="localVenta" required><br>
+             
+          <input type="number" class="form-control input-ingreso" placeholder="Precio del producto" type="number"  name="precio"  [formControl]="precio" required><br>
+          
+          <input type="string" class="form-control input-ingreso" placeholder="Calzado para..."  name="sexoZapato"  [formControl]="sexoZapato" required><br>
+             
+
+
+            <button (click)="IngresarZapato()" class="btn btn-success col-sm-12" [disabled]="!registroForm.valid">Ingresar</button>
           <br><br>
          </div>
     
@@ -24,23 +34,37 @@
       
         <h3 style="color:whitesmoke; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Lista de Servicios</h3>
       
-        <!-- <p *ngFor="let web of listado">{{web.idUsuario}},{{web.nombre_servicio}}, {{web.contratado}} </p> -->
-
+   
         <table mat-table [dataSource]="listado" class="lessons-table mat-elevation-z8" style="align-content: center;">
      
-            <ng-container matColumnDef="idUsuario">
-              <th mat-header-cell *matHeaderCellDef> Nombre de Usuario </th>
-              <td mat-cell *matCellDef="let element"> {{element.idUsuario}} </td>
+            <ng-container matColumnDef="codigoZapato">
+              <th mat-header-cell *matHeaderCellDef> Codigo del zapato </th>
+              <td mat-cell *matCellDef="let element"> {{element.codigozapato}} </td>
             </ng-container>
           
-            <ng-container matColumnDef="nombre_servicio">
-              <th mat-header-cell *matHeaderCellDef> Servicio Contratado </th>
-              <td mat-cell *matCellDef="let element"> {{element.nombre_servicio}} </td>
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef> Nombre del calzado </th>
+              <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
             </ng-container>
           
-            <ng-container matColumnDef="contratado">
-              <th mat-header-cell *matHeaderCellDef> Cantidad Contratada </th>
-              <td mat-cell *matCellDef="let element"> {{element.contratado}} </td>
+            <ng-container matColumnDef="fIngreso">
+              <th mat-header-cell *matHeaderCellDef> Fecha de ingreso </th>
+              <td mat-cell *matCellDef="let element"> {{fechaHoy | date:'dd-MM-yyyy'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="localVenta">
+              <th mat-header-cell *matHeaderCellDef> Local de Venta </th>
+              <td mat-cell *matCellDef="let element"> {{element.localVenta}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="precio">
+              <th mat-header-cell *matHeaderCellDef> Precio </th>
+              <td mat-cell *matCellDef="let element"> {{element.precio}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="sexoZapato">
+              <th mat-header-cell *matHeaderCellDef> Zapato para... </th>
+              <td mat-cell *matCellDef="let element"> {{element.sexoZapato}} </td>
             </ng-container>
 
 
@@ -51,4 +75,4 @@
         
       </div>
     
-    </div>
+    </div> 

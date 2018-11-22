@@ -1,15 +1,20 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Servicio } from '../clases/servicio';
-import { AltaWebService } from "../services/alta-web.service";
+import { Zapato } from '../clases/zapato';
+import { ZapatoService } from "../services/zapato.service";
 import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 // import { MessageService } from 'primeng/api';
 // import {Message} from 'primeng/components/common/api';
 import { first } from 'rxjs/operators';
 
 export interface DetalleUsuarios {
-  idUsuario: any;
-  nombre_servicio: any;
-  contratado: any;
+  id: number;
+  codigoZapato: number; 
+  nombre: string;
+  fIngreso: string;
+  localVenta: string;
+  precio: number;
+  sexoZapato: string;
+
 }
 
 @Component({
@@ -19,7 +24,7 @@ export interface DetalleUsuarios {
 })
 export class ServidoresComponent implements OnInit {
 
-
+  @Input() fechaHoy: number = Date.now();
   @Input() dataSource;
   captcha=false;
   listaUsuarios:Array<any>;
@@ -28,14 +33,13 @@ export class ServidoresComponent implements OnInit {
   returnUrl: string;
   datacallback: string;
   listado: any;
-
-
-  displayedColumns: string[] = ['idUsuario','nombre_servicio','contratado'];
+  
+  displayedColumns: string[] = ['codigoZapato','nombre','fIngreso','localVenta','precio','sexoZapato'];
 
   constructor(
           private builder: FormBuilder,
           // private usrService: UsuariosService, 
-          private httpUsuarios:AltaWebService
+          private httpUsuarios:ZapatoService
         ) 
         
         {
@@ -45,41 +49,73 @@ export class ServidoresComponent implements OnInit {
           })
    }
 
-   NombServ = new FormControl('', [
-    Validators.required,
-    Validators.minLength(5)
-   ]);
   
-  Contratado = new FormControl('', [
+   codigoZapato = new FormControl('', [
     Validators.required
   ]);
 
+  nombre = new FormControl('', [
+    Validators.required
+  ]);
+
+  fIngreso = new FormControl('', [
+    Validators.required
+  ]);
+
+  localVenta = new FormControl('', [
+    Validators.required
+  ]);
+
+  precio = new FormControl('', [
+    Validators.required
+  ]);
+
+  sexoZapato = new FormControl('', [
+    Validators.required
+   ]);
+
+
   registroForm: FormGroup = this.builder.group({
-    NombServ: this.NombServ,
-    Contratado: this.Contratado
-   
+    codigoZapato: this.codigoZapato,
+    nombre: this.nombre,
+    fIngreso: this.fIngreso,
+    localVenta: this.localVenta,
+    precio: this.precio,
+    sexoZapato: this.sexoZapato  
   });
 
   get f() { return this.registroForm.controls; }
 
-   IngresarServicio()
+  IngresarZapato()
    {
  
-    let idusuario: any = JSON.parse(localStorage.getItem('usuario'));
+    // let idusuario: any = JSON.parse(localStorage.getItem('usuario'));
 
-    console.log(idusuario);
+    // console.log(idusuario);
 
-    idusuario = idusuario.usuario;
+    // idusuario = idusuario.usuario;
     
      //console.log(idusuario);
-     let datosLogin = new Servicio(idusuario,this.f.NombServ.value, this.f.Contratado.value);
+     let datosLogin = new Zapato(
+                                 
+                                  this.f.codigoZapato.value,
+                                  this.f.nombre.value,
+                                  this.f.fIngreso.value,
+                                  this.f.localVenta.value,
+                                  this.f.precio.value,
+                                  this.f.sexoZapato.value  
+                                  );
 
     console.log(datosLogin);
 
     this.httpUsuarios.ServiceAltaWeb(datosLogin).subscribe( data =>{
         console.log(data._body);        
     });
-  
+
+
+    this.httpUsuarios.ServiceTraerWeb().subscribe( data =>{
+      this.listado = JSON.parse(data._body);
+    })
    }
 
    RecibirCaptcha(ok)

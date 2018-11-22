@@ -5,9 +5,9 @@
   <a mat-button *ngIf="!IngresoBool" routerLink="/home" routerLinkActive="active" id="hbtn"><span class="fa fa-home fa-lg"></span> Home</a>
 
  <!-- PERFILES -->
- <a mat-button  *ngIf="IngresoBool && (perfilUsuario != 'free')" routerLink="/servidores" routerLinkActive="active" id="hbtn"><span class="fa fa-server fa-lg"></span> Servidores </a>
- <a mat-button  *ngIf="IngresoBool && (perfilUsuario != 'free')" routerLink="/bases" routerLinkActive="active" id="hbtn"><span class="fa fa-database fa-lg"></span> Base de datos</a>
- <a mat-button  *ngIf="IngresoBool && (perfilUsuario != 'free')" routerLink="/almacarchivos" routerLinkActive="active" id="hbtn"><span class="fa fa-folder-open-o fa-lg"></span> Almacenamiento archivos</a>
+ <a mat-button  *ngIf="IngresoBool && (perfilUsuario != 'cliente')" routerLink="/servidores" routerLinkActive="active" id="hbtn"><span class="fa fa-info fa-lg"></span> Cargar Productos </a>
+ <a mat-button  *ngIf="IngresoBool && (perfilUsuario == 'administrador')" routerLink="/bases" routerLinkActive="active" id="hbtn"><span class="fa fa-bar-chart fa-lg"></span> Estadísticas</a>
+ <a mat-button  *ngIf="IngresoBool" routerLink="/almacarchivos" routerLinkActive="active" id="hbtn"><span class="fa fa-shopping-cart fa-lg"></span> Hacer compras</a>
 
  <a mat-button  *ngIf="IngresoBool && (perfilUsuario == 'free')" routerLink="/free" routerLinkActive="active" id="hbtn"><span class="fa fa-user fa-lg"></span> NO PUEDE ACCEDER</a>
 
@@ -31,9 +31,9 @@
 
   <div fxFlex fxFlex.gt-sm="60%">
     <div>
-    <h1 style="color:whitesmoke; 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">WEB Service Page</h1>
+    <h1 style="color:whitesmoke; 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Zapateria POLLO</h1>
   </div>
-    <p>Pagina para la contratación de servicios WEB.</p>
+    <p>La mejor zapateria de Zona Sur</p>
   </div>
   <div class="md-8">
     

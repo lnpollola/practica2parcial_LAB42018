@@ -10,6 +10,7 @@ require_once './clases/PedidoApi.php';
 require_once './clases/MesaApi.php';
 require_once './clases/SesionApi.php';
 require_once './clases/WebApi.php';
+require_once './clases/ZapatoApi.php';
 
 require_once './clases/ProductoApi.php';
 require_once './clases/AutentificadorJWT.php';
@@ -43,6 +44,26 @@ $app->group('/Servicios', function () {
 
   $this->post('/AltaWeb',\WebApi::class . ':AltaWebSegundoParcial');
   $this->get('/TodasWebs',\WebApi::class . ':ListadoServicios');
+
+  $this->post('/Carga', \WebApi::class . ':CargarUno');
+  $this->post('/Borrar', \WebApi::class . ':BorrarUno');
+  $this->post('/ModificarUsuario', \WebApi::class . ':ModificarUno');
+  $this->post('/Suspender', \WebApi::class . ':Suspender');  
+  $this->get('/Operaciones/{id}', \WebApi::class . ':CantidadDeOperaciones');
+  $this->get('/Logueos', \WebApi::class . ':IngresosAlSistema');
+  $this->get('/OperacionesUsuarios', \WebApi::class . ':OperacionesTodosUsuarios');
+  $this->get('/OperacionesSector/{sector}', \WebApi::class . ':OperacionesPorSector');
+  $this->get('/OperacionesUsuario/{idUsuario}', \WebApi::class . ':OperacionesUsuarioSeparado');
+  $this->get('/OperacionesUsuarioSector/{sector}', \WebApi::class . ':OperacionesUsuariosSector');
+  $this->get('/ListaUsuarios', \WebApi::class . ':traerTodos');//->add(\MWLaComanda::class . ':VerificarAdministrador');//->add(\MWparaAutentificar::class . ':VerificarUsuario');
+  $this->get('/TraerUno/{id}', \WebApi::class . ':traerUno')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
+})/*->add(\MWparaAutentificar::class . ':VerificarUsuario')*/
+->add(\MWparaCORS::class . ':HabilitarCORS8080')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
+
+$app->group('/Zapatos', function () { 
+
+  $this->post('/AltaZapato',\ZapatoApi::class . ':AltaWebSegundoParcial');
+  $this->get('/TodosZapatos',\ZapatoApi::class . ':ListadoZapatos');
 
   $this->post('/Carga', \WebApi::class . ':CargarUno');
   $this->post('/Borrar', \WebApi::class . ':BorrarUno');

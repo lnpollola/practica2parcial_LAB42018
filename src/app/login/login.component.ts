@@ -72,13 +72,13 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('token', JSON.stringify(this.respuesta.token) );
           this.dialog.closeAll();
 
-          if( this.respuesta.datos.perfil !='free')
+          if( this.respuesta.datos.perfil !='cliente')
           {
             this.router.navigate(['servidores']); 
           }
           else
           {
-            this.router.navigate(['free']); 
+            this.router.navigate(['almacarchivos']); 
           }
          
         }
@@ -92,28 +92,28 @@ export class LoginComponent implements OnInit {
 
   }
 
-  LoginProf()
+  LoginCli()
   {
-      this.loginForm.controls['usuario'].setValue('userProf');
-      this.loginForm.controls['email'].setValue('userProf@gmail.com');
+      this.loginForm.controls['usuario'].setValue('cliente');
+      this.loginForm.controls['email'].setValue('cliente@gmail.com');
       this.loginForm.controls['clave'].setValue('1234');
-      this.loginForm.controls['perfil'].setValue('profesional');
+      this.loginForm.controls['perfil'].setValue('cliente');
   }
 
-  LoginNorm()
+  LoginVend()
   {
-      this.loginForm.controls['usuario'].setValue('userNorm');
-      this.loginForm.controls['email'].setValue('userNorm@gmail.com');
+      this.loginForm.controls['usuario'].setValue('vendedor');
+      this.loginForm.controls['email'].setValue('vendedor@gmail.com');
       this.loginForm.controls['clave'].setValue('1234');
-      this.loginForm.controls['perfil'].setValue('normal');
+      this.loginForm.controls['perfil'].setValue('vendedor');
   }
 
-  LoginFree()
+  LoginAdmin()
   {
-      this.loginForm.controls['usuario'].setValue('userFree');
-      this.loginForm.controls['email'].setValue('userFree@gmail.com');
+      this.loginForm.controls['usuario'].setValue('administrador');
+      this.loginForm.controls['email'].setValue('administrador@gmail.com');
       this.loginForm.controls['clave'].setValue('1234');
-      this.loginForm.controls['perfil'].setValue('free');
+      this.loginForm.controls['perfil'].setValue('administrador');
   }
   
 
