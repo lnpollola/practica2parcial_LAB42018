@@ -62,6 +62,7 @@ import { ServidoresComponent } from './servidores/servidores.component';
 import { BasesComponent } from './bases/bases.component';
 import { AlmacarchivosComponent } from './almacarchivos/almacarchivos.component';
 import { UserFreeComponent } from './user-free/user-free.component';
+import { FiltroPipe } from './pipes/filtro.pipe';
 
 
 
@@ -80,7 +81,8 @@ import { UserFreeComponent } from './user-free/user-free.component';
     ServidoresComponent,
     BasesComponent,
     AlmacarchivosComponent,
-    UserFreeComponent
+    UserFreeComponent,
+    FiltroPipe
   ],
   imports: [
     BrowserModule,

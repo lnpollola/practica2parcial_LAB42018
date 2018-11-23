@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Zapato } from '../clases/zapato';
+import { ZapatoService } from "../services/zapato.service";
 
 @Component({
   selector: 'app-bases',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BasesComponent implements OnInit {
 
-  constructor() { }
+  @Input() fechaHoy: number = Date.now();
+  listado: any;
+  busqueda:string;
+
+  constructor( private httpUsuarios:ZapatoService) { }
 
   ngOnInit() {
+    
+    this.httpUsuarios.ServiceTraerWeb().subscribe( data =>{
+      this.listado = JSON.parse(data._body);
+    })
+   }
+
   }
 
-}
+

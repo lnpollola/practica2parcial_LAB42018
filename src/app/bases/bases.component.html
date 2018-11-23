@@ -1,4 +1,63 @@
 <app-header></app-header>
-<p>
-  bases works!
-</p>
+
+
+
+<div class="mat-elevation-z8 col-md-5" style="color:black; background: rgba(119, 136, 153, 0.481);">
+
+
+  
+<!-- <input type="text" placeholder="Busqueda" class="form-control miInput" [(ngModel)]="busqueda" > -->
+<!-- <input type="option"  value="busqueda" > Local1  -->
+
+<label>
+  <input type="radio" [(ngModel)]="busqueda" value="local1">
+  Local1
+</label>
+
+<label>
+  <input type="radio" [(ngModel)]="busqueda" value="local2">
+  Local2
+</label>
+
+       
+<!-- <input type="radio"
+ng-model="string"
+value="local1"
+[name="string"]
+[ng-change="string"]
+ng-value="string"> -->
+
+<td *matCellDef="let element"> <select [(ngModel)]="element.tiempoPreparacion">
+  <option value="5">5</option>
+  <option value="10">10</option>
+  <option value="20">20</option>
+  <option value="30">30</option>
+</select>
+</td>
+
+<br>
+
+
+<table class="table">
+    <thead>
+      <th>Cod.Zapato</th> 
+      <th>Nombre</th>
+       <th>Fecha</th>
+       <th>Local de Venta</th>
+       <th>Precio</th>
+       <th>Zapato para...</th>
+       
+    </thead>
+    <tbody *ngIf="listado">
+      <tr *ngFor="let zapato of (listado | filtroLocal: busqueda)">
+          <td>{{zapato.codigozapato}}</td>
+          <td>{{zapato.nombre}}</td>
+          <td>{{fechaHoy | date:'dd-MM-yyyy'}}</td>
+          <td>{{zapato.localVenta}}</td>
+          <td>{{zapato.precio}}</td>
+          <td>{{zapato.sexoZapato}}</td>
+          
+        </tr>
+    </tbody>
+  </table>
+</div>
