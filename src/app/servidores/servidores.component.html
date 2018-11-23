@@ -59,12 +59,13 @@
 
             <ng-container matColumnDef="precio">
               <th mat-header-cell *matHeaderCellDef> Precio </th>
-              <td mat-cell *matCellDef="let element"> {{element.precio}} </td>
+              <td mat-cell *matCellDef="let element"> {{element.precio | aumento: 25}} </td>
             </ng-container>
 
             <ng-container matColumnDef="sexoZapato">
               <th mat-header-cell *matHeaderCellDef> Zapato para... </th>
-              <td mat-cell *matCellDef="let element"> {{element.sexoZapato}} </td>
+              <td mat-cell estilo [tipo]="element.sexoZapato" *matCellDef="let element" > {{element.sexoZapato}} </td>
+              
             </ng-container>
 
 

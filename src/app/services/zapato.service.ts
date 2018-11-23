@@ -28,4 +28,19 @@ export class ZapatoService {
 
   }
 
+  // ServiceTraerNoRepetidos
+  public ServiceTraerNoRepetidos():Observable<any>{
+
+    return this._generico.httpGet("Zapatos/ZapatosNoRep")
+    .pipe(data =>{return data;}); 
+
+  }
+
+  public ServiceTraerRepetidos():Observable<any>{
+
+    return this._generico.httpGet("Zapatos/ZapatosRep")
+    .pipe(data =>{return data;}); 
+
+  }
+
  }

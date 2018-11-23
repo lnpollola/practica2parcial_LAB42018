@@ -13,6 +13,8 @@ export class BasesComponent implements OnInit {
   @Input() fechaHoy: number = Date.now();
   listado: any;
   busqueda:string;
+  @Input() prodNoRepetidos: any;
+  @Input() prodRepetidos: any;
 
   constructor( private httpUsuarios:ZapatoService) { }
 
@@ -20,6 +22,20 @@ export class BasesComponent implements OnInit {
     
     this.httpUsuarios.ServiceTraerWeb().subscribe( data =>{
       this.listado = JSON.parse(data._body);
+    })
+   }
+
+   ProdNoRepetidos()
+   {
+    this.httpUsuarios.ServiceTraerNoRepetidos().subscribe( data =>{
+      this.prodNoRepetidos = JSON.parse(data._body);
+    })
+   }
+   
+   ProdRepetidos()
+   {
+    this.httpUsuarios.ServiceTraerRepetidos().subscribe( data =>{
+      this.prodRepetidos = JSON.parse(data._body);
     })
    }
 

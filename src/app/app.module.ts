@@ -63,6 +63,8 @@ import { BasesComponent } from './bases/bases.component';
 import { AlmacarchivosComponent } from './almacarchivos/almacarchivos.component';
 import { UserFreeComponent } from './user-free/user-free.component';
 import { FiltroPipe } from './pipes/filtro.pipe';
+import { AumentoPipe } from './pipes/aumento.pipe';
+import { TipoProductoDirective } from './directive/tipo-producto.directive';
 
 
 
@@ -82,7 +84,9 @@ import { FiltroPipe } from './pipes/filtro.pipe';
     BasesComponent,
     AlmacarchivosComponent,
     UserFreeComponent,
-    FiltroPipe
+    FiltroPipe,
+    AumentoPipe,
+    TipoProductoDirective
   ],
   imports: [
     BrowserModule,

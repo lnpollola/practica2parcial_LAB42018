@@ -5,38 +5,8 @@
 <div class="mat-elevation-z8 col-md-5" style="color:black; background: rgba(119, 136, 153, 0.481);">
 
 
-  
-<!-- <input type="text" placeholder="Busqueda" class="form-control miInput" [(ngModel)]="busqueda" > -->
-<!-- <input type="option"  value="busqueda" > Local1  -->
-
-<label>
-  <input type="radio" [(ngModel)]="busqueda" value="local1">
-  Local1
-</label>
-
-<label>
-  <input type="radio" [(ngModel)]="busqueda" value="local2">
-  Local2
-</label>
-
-       
-<!-- <input type="radio"
-ng-model="string"
-value="local1"
-[name="string"]
-[ng-change="string"]
-ng-value="string"> -->
-
-<td *matCellDef="let element"> <select [(ngModel)]="element.tiempoPreparacion">
-  <option value="5">5</option>
-  <option value="10">10</option>
-  <option value="20">20</option>
-  <option value="30">30</option>
-</select>
-</td>
-
-<br>
-
+<label><input type="radio" [(ngModel)]="busqueda" value="local1">Local 1</label>
+<label><input type="radio" [(ngModel)]="busqueda" value="local2">Local 2</label>
 
 <table class="table">
     <thead>
@@ -61,3 +31,29 @@ ng-value="string"> -->
     </tbody>
   </table>
 </div>
+
+<button (click)="ProdNoRepetidos()" class="btn btn-success">NO Repetidos</button>
+<table class="table">
+ 
+<thead>
+  <th>Cod.Zapato</th> 
+</thead>
+<tr *ngFor="let zapato of prodNoRepetidos">
+  
+  <tbody>
+  <td>{{zapato.codigozapato}}</td>
+</tbody>
+</table>
+
+
+
+<button (click)="ProdRepetidos()" class="btn btn-warning" >Repetidos </button>
+<tr *ngFor="let zapato of prodRepetidos">
+  <table class="table">
+  <thead>
+    <th>Cod.Zapato</th> 
+  </thead>
+  <tbody>
+  <td>{{zapato.codigozapato}}</td>
+</tbody>
+</table>
